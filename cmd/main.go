@@ -68,8 +68,8 @@ func main() {
 		if !cfg.IsEnvRelease {
 			return true, nil
 		}
-		return subtle.ConstantTimeCompare([]byte(username), []byte(username)) == 1 &&
-			subtle.ConstantTimeCompare([]byte(password), []byte(password)) == 1, nil
+		return subtle.ConstantTimeCompare([]byte(username), []byte(cfg.QueueUsername)) == 1 &&
+			subtle.ConstantTimeCompare([]byte(password), []byte(cfg.QueuePassword)) == 1, nil
 	}))
 
 	// caching

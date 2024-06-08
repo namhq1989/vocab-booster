@@ -51,6 +51,8 @@ func GetUserDataWithGoogleToken(ctx *appcontext.AppContext, clientID, token stri
 		return nil, err
 	}
 
+	ctx.Logger().Info("Successfully fetched user data from Google", appcontext.Fields{"userID": result.ID, "email": result.Email, "name": result.Name})
+
 	// return
 	return &result, nil
 }

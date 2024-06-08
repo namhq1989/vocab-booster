@@ -14,7 +14,7 @@ import (
 )
 
 func Init() {
-	_ = os.MkdirAll(getUploadTempPath(), os.ModePerm)
+	_ = os.MkdirAll(getUploadTempPath(), 0755)
 }
 
 func getUploadTempPath() string {
@@ -47,7 +47,7 @@ func UploadSingle(next echo.HandlerFunc) echo.HandlerFunc {
 		}
 		defer func() { _ = src.Close() }()
 
-		dst, err := os.Create(fmt.Sprintf("%s/%s", getUploadTempPath(), file.Filename))
+		dst, err := os.Create(path.Join(getUploadTempPath(), file.Filename))
 		if err != nil {
 			ctx.Logger().Error("failed to create file to upload temporary directory", err, appcontext.Fields{"file": file.Filename})
 			return httprespond.R400(c, apperrors.Common.InvalidFile, nil)
