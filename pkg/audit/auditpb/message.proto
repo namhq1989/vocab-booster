@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+package auditpb;
+
+message Audit {
+  string id = 1;
+  string action = 2;
+  string actor = 3;
+  Entity entity = 4;
+  string sourceIp = 5;
+  google.protobuf.Timestamp createdAt = 6;
+}
+
+message Entity {
+  string id = 1;
+  string name = 2;
+}
