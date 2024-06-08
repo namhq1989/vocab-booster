@@ -4,7 +4,14 @@ import (
 	"time"
 
 	"github.com/golang-jwt/jwt"
+	"github.com/namhq1989/vocab-booster-server-admin/core/appcontext"
 )
+
+type JWTInterface interface {
+	GenerateTokens(ctx *appcontext.AppContext, userID string) (result *Result, err error)
+	GenerateAccessToken(ctx *appcontext.AppContext, userID string) (string, error)
+	ParseAccessToken(ctx *appcontext.AppContext, token string) (*Claims, error)
+}
 
 const (
 	defaultAccessTokenTTL  = time.Minute * 15   // 15 minutes

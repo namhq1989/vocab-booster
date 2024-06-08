@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"time"
 
+	"github.com/namhq1989/vocab-booster-server-admin/pkg/auth"
+
 	"github.com/namhq1989/vocab-booster-server-admin/pkg/audit"
 
 	"github.com/labstack/echo/v4"
@@ -84,6 +86,7 @@ func main() {
 	// modules
 	a.modules = []monolith.Module{
 		&audit.Module{},
+		&auth.Module{},
 	}
 
 	// start

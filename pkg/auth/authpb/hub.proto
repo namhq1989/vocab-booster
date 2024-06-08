@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package authpb;
+
+service AuthService {
+  rpc IsAdmin(IsAdminRequest) returns (IsAdminResponse) {}
+}
+
+// IS ADMIN
+
+message IsAdminRequest {
+  string id = 1;
+}
+
+message IsAdminResponse {
+  bool isAdmin = 1;
+}
