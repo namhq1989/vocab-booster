@@ -1,0 +1,7 @@
+syntax = "proto3";
+
+package auditpb;
+
+import "auditpb/message.proto";
+
+service AuditService {}
