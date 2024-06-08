@@ -27,7 +27,7 @@ func (s *getAccessTokenByStaffIDTestSuite) SetupSuite() {
 	s.setupApplication()
 }
 
-func (s *getAccessTokenByStaffIDTestSuite) AfterTest(_, _ string) {
+func (*getAccessTokenByStaffIDTestSuite) AfterTest(_, _ string) {
 	// do nothing
 }
 

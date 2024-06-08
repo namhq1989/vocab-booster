@@ -28,7 +28,7 @@ func (s *isAdminTestSuite) SetupSuite() {
 	s.setupApplication()
 }
 
-func (s *isAdminTestSuite) AfterTest(_, _ string) {
+func (*isAdminTestSuite) AfterTest(_, _ string) {
 	// do nothing
 }
 

@@ -28,7 +28,7 @@ func (s *getMeTestSuite) SetupSuite() {
 	s.setupApplication()
 }
 
-func (s *getMeTestSuite) AfterTest(_, _ string) {
+func (*getMeTestSuite) AfterTest(_, _ string) {
 	// do nothing
 }
 

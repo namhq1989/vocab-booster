@@ -33,7 +33,7 @@ func (s *refreshAccessTokenTestSuite) SetupSuite() {
 	s.setupApplication()
 }
 
-func (s *refreshAccessTokenTestSuite) AfterTest(_, _ string) {
+func (*refreshAccessTokenTestSuite) AfterTest(_, _ string) {
 	// do nothing
 }
 
