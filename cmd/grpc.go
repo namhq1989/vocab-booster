@@ -6,7 +6,7 @@ import (
 )
 
 func initRPC() *grpc.Server {
-	s := grpc.NewServer()
+	s := grpc.NewServer(grpc.Creds(nil))
 	reflection.Register(s)
 	return s
 }

@@ -37,7 +37,7 @@ func (m Audit) ToDomain() domain.Audit {
 	}
 }
 
-func (m Audit) FromDomain(audit domain.Audit) (*Audit, error) {
+func (Audit) FromDomain(audit domain.Audit) (*Audit, error) {
 	id, err := database.ObjectIDFromString(audit.ID)
 	if err != nil {
 		return nil, apperrors.Common.InvalidID

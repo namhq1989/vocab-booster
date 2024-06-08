@@ -30,6 +30,6 @@ func (c Caching) Del(ctx *appcontext.AppContext, key string) (int64, error) {
 	return c.redis.Del(ctx.Context(), key).Result()
 }
 
-func (c Caching) GenerateKey(domain, key string) string {
+func (Caching) GenerateKey(domain, key string) string {
 	return fmt.Sprintf("admin:caching:%s:%s", domain, key)
 }

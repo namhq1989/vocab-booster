@@ -39,8 +39,6 @@ func New(queue *queue.Queue, auditRepository domain.AuditRepository) Worker {
 
 func (w Worker) Start() {
 	w.queue.Server.HandleFunc(w.queue.GenerateTypename(queue.TypeNames.AuditNewStaffCreated), func(bgCtx context.Context, t *asynq.Task) error {
-		return queue.ProcessTask[domain.QueueNewStaffCreatedAuditLog](bgCtx, t, queue.ParsePayload[domain.QueueNewStaffCreatedAuditLog], func(ctx *appcontext.AppContext, payload domain.QueueNewStaffCreatedAuditLog) error {
-			return w.NewStaffCreated(ctx, payload)
-		})
+		return queue.ProcessTask[domain.QueueNewStaffCreatedAuditLog](bgCtx, t, queue.ParsePayload[domain.QueueNewStaffCreatedAuditLog], w.NewStaffCreated)
 	})
 }

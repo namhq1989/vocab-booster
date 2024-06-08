@@ -14,7 +14,7 @@ import (
 )
 
 func Init() {
-	_ = os.MkdirAll(getUploadTempPath(), 0755)
+	_ = os.MkdirAll(getUploadTempPath(), 0600)
 }
 
 func getUploadTempPath() string {
