@@ -32,22 +32,6 @@ audit_invalid_action = "Thao tác không hợp lệ"
 user_invalid_id = "ID người dùng không hợp lệ"
 user_not_found = "Không tìm thấy người dùng"
 
-# publisher
-publisher_invalid_id = "ID nhà phát hành không hợp lệ"
-publisher_not_found = "Không tìm thấy nhà phát hành"
-
-# product
-product_not_found = "Không tìm thấy sản phẩm"
-product_invalid_product = "Sản phẩm không hợp lệ"
-product_invalid_publisher = "Nhà phát hành không hợp lệ"
-product_invalid_supplier = "Nhà cung cấp không hợp lệ"
-product_invalid_brand = "Nhãn hàng không hợp lệ"
-product_invalid_category = "Danh mục không hợp lệ"
-product_invalid_min_price = "Giá thấp nhất không hợp lệ"
-product_invalid_max_price = "Giá cao nhất không hợp lệ"
-product_invalid_listed_price = "Giá niêm yết không hợp lệ"
-product_invalid_stimulus_price = "Giá kích cầu không hợp lệ"
-product_invalid_price = "Giá không hợp lệ"
-product_invalid_commission = "Hoa hồng không hợp lệ"
-product_invalid_sku = "SKU không hợp lệ"
-product_invalid_sku_price = "Giá SKU không hợp lệ"
+# staff
+staff_invalid_id = "ID nhân viên không hợp lệ"
+staff_not_found = "Không tìm thấy nhân viên"

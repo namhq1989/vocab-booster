@@ -2,7 +2,7 @@ package validation
 
 import (
 	"github.com/gookit/validate"
-	"github.com/labstack/echo"
+	"github.com/labstack/echo/v4"
 	"github.com/namhq1989/vocab-booster-server-admin/internal/utils/httprespond"
 )
 

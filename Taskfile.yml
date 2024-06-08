@@ -22,11 +22,14 @@ tasks:
     cmds:
       # grpc
       - mockgen -source=internal/genproto/authpb/hub_grpc.pb.go -destination=internal/mock/grpc/auth_client.go -package=mockgrpc
-      - mockgen -source=internal/genproto/userpb/hub_grpc.pb.go -destination=internal/mock/grpc/user_client.go -package=mockgrpc
+      - mockgen -source=internal/genproto/staffpb/hub_grpc.pb.go -destination=internal/mock/grpc/staff_client.go -package=mockgrpc
       - mockgen -source=internal/genproto/auditpb/hub_grpc.pb.go -destination=internal/mock/grpc/audit_client.go -package=mockgrpc
 
-      # mongo
-      - mockgen -source=pkg/user/domain/user_hub.go -destination=internal/mock/mongo/user_hub.go -package=mockmongo
+      # jwt
+      - mockgen -source=internal/utils/jwt/jwt.go -destination=internal/mock/jwt/jwt.go -package=mockjwt
+
+      # domain
+      - mockgen -source=pkg/auth/domain/staff_auth_token.go -destination=internal/mock/domain/auth/staff_auth_token.go -package=mockauth
 
   test:
     dotenv: ['.env.test']

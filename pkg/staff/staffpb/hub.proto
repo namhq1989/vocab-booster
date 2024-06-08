@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package staffpb;
+
+import "staffpb/message.proto";
+
+service StaffService {
+  rpc FindUserByID(FindStaffByIDRequest) returns (FindStaffByIDResponse) {}
+  rpc FindUserByEmail(FindStaffByEmailRequest) returns (FindStaffByEmailResponse) {}
+}
+
+// FIND STAFF BY ID
+
+message FindStaffByIDRequest {
+  string id = 1;
+}
+
+message FindStaffByIDResponse {
+  Staff staff = 1;
+}
+
+
+// FIND STAFF BY EMAIL
+
+message FindStaffByEmailRequest {
+  string email = 1;
+}
+
+message FindStaffByEmailResponse {
+  Staff staff = 1;
+}
