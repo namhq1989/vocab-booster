@@ -5,12 +5,6 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/namhq1989/vocab-booster-server-admin/pkg/staff"
-
-	"github.com/namhq1989/vocab-booster-server-admin/pkg/auth"
-
-	"github.com/namhq1989/vocab-booster-server-admin/pkg/audit"
-
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
 	apperrors "github.com/namhq1989/vocab-booster-server-admin/core/error"
@@ -25,6 +19,9 @@ import (
 	appfile "github.com/namhq1989/vocab-booster-server-admin/internal/utils/file"
 	appjwt "github.com/namhq1989/vocab-booster-server-admin/internal/utils/jwt"
 	"github.com/namhq1989/vocab-booster-server-admin/internal/utils/waiter"
+	"github.com/namhq1989/vocab-booster-server-admin/pkg/audit"
+	"github.com/namhq1989/vocab-booster-server-admin/pkg/auth"
+	"github.com/namhq1989/vocab-booster-server-admin/pkg/staff"
 )
 
 func main() {

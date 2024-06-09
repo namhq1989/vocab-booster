@@ -3,11 +3,9 @@ package domain
 import (
 	"time"
 
-	apperrors "github.com/namhq1989/vocab-booster-server-admin/core/error"
-
-	"github.com/namhq1989/vocab-booster-server-admin/internal/database"
-
 	"github.com/namhq1989/vocab-booster-server-admin/core/appcontext"
+	apperrors "github.com/namhq1989/vocab-booster-server-admin/core/error"
+	"github.com/namhq1989/vocab-booster-server-admin/internal/database"
 )
 
 type StaffAuthTokenRepository interface {
