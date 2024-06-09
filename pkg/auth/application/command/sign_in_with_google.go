@@ -51,18 +51,21 @@ func (h SignInWithGoogleHandler) SignInWithGoogle(ctx *appcontext.AppContext, re
 		return nil, err
 	}
 
-	ctx.Logger().Text("persist refresh token to database")
-	err = h.staffAuthTokenRepository.CreateAuthToken(ctx, domain.RefreshToken{
-		StaffID: staff.ID,
-		Token:   generatedTokens.RefreshToken,
-		Expiry:  generatedTokens.RefreshTokenExpiry,
-	})
+	ctx.Logger().Text("create token's domain model")
+	authToken, err := domain.NewAuthToken(staff.ID, generatedTokens.RefreshToken, generatedTokens.AccessTokenExpiry)
 	if err != nil {
-		ctx.Logger().Error("failed to persist refresh token", err, appcontext.Fields{})
+		ctx.Logger().Error("failed to create token's domain model", err, appcontext.Fields{})
 		return nil, err
 	}
 
-	ctx.Logger().Text("generate response's tokens data")
+	ctx.Logger().Text("persist auth token to database")
+	err = h.staffAuthTokenRepository.CreateAuthToken(ctx, *authToken)
+	if err != nil {
+		ctx.Logger().Error("failed to persist auth token", err, appcontext.Fields{})
+		return nil, err
+	}
+
+	ctx.Logger().Text("generate response data")
 	tokens := &domain.Tokens{
 		AccessToken:  generatedTokens.AccessToken,
 		RefreshToken: generatedTokens.RefreshToken,

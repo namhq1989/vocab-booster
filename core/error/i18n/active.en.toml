@@ -13,14 +13,15 @@ invalid_id = "Invalid id"
 invalid_name = "Invalid name"
 invalid_code = "Invalid code"
 invalid_email = "Invalid email"
-invalid_role = "Invalid role"
 invalid_status = "Invalid status"
+invalid_role = "Invalid role"
 invalid_file = "Invalid file"
 
 # auth
 auth_invalid_auth_token = "Invalid auth token"
 auth_invalid_google_token = "Invalid Google token"
 auth_invalid_refresh_token = "Invalid refresh token"
+auth_invalid_expiry = "Invalid expiry"
 auth_not_allowed = "Not allowed"
 
 # audit

@@ -50,7 +50,7 @@ func (r StaffAuthTokenRepository) collection() *mongo.Collection {
 	return r.db.GetCollection(r.collectionName)
 }
 
-func (r StaffAuthTokenRepository) CreateAuthToken(ctx *appcontext.AppContext, token domain.RefreshToken) error {
+func (r StaffAuthTokenRepository) CreateAuthToken(ctx *appcontext.AppContext, token domain.AuthToken) error {
 	doc, err := dbmodel.AuthToken{}.FromDomain(token)
 	if err != nil {
 		return err
@@ -72,8 +72,8 @@ func (r StaffAuthTokenRepository) DeleteAuthToken(ctx *appcontext.AppContext, to
 	return err
 }
 
-func (r StaffAuthTokenRepository) FindAuthToken(ctx *appcontext.AppContext, refreshToken string) (*domain.RefreshToken, error) {
-	var doc *domain.RefreshToken
+func (r StaffAuthTokenRepository) FindAuthToken(ctx *appcontext.AppContext, refreshToken string) (*domain.AuthToken, error) {
+	var doc dbmodel.AuthToken
 	err := r.collection().FindOne(ctx.Context(), bson.M{
 		"refreshToken": refreshToken,
 	}).Decode(&doc)
@@ -83,5 +83,7 @@ func (r StaffAuthTokenRepository) FindAuthToken(ctx *appcontext.AppContext, refr
 		return nil, apperrors.Auth.InvalidAuthToken
 	}
 
-	return doc, nil
+	// respond
+	result := doc.ToDomain()
+	return &result, nil
 }

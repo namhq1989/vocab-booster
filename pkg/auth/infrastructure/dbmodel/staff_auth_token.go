@@ -14,18 +14,20 @@ type AuthToken struct {
 	StaffID      primitive.ObjectID `bson:"staffId"`
 	RefreshToken string             `bson:"refreshToken"`
 	Expiry       time.Time          `bson:"expiry"`
+	CreatedAt    time.Time          `bson:"createdAt"`
 }
 
-func (m AuthToken) ToDomain() domain.RefreshToken {
-	return domain.RefreshToken{
-		ID:      m.ID.Hex(),
-		StaffID: m.StaffID.Hex(),
-		Token:   m.RefreshToken,
-		Expiry:  m.Expiry,
+func (m AuthToken) ToDomain() domain.AuthToken {
+	return domain.AuthToken{
+		ID:           m.ID.Hex(),
+		StaffID:      m.StaffID.Hex(),
+		RefreshToken: m.RefreshToken,
+		Expiry:       m.Expiry,
+		CreatedAt:    m.CreatedAt,
 	}
 }
 
-func (AuthToken) FromDomain(token domain.RefreshToken) (*AuthToken, error) {
+func (AuthToken) FromDomain(token domain.AuthToken) (*AuthToken, error) {
 	id, err := database.ObjectIDFromString(token.ID)
 	if err != nil {
 		return nil, apperrors.Common.InvalidID
@@ -39,7 +41,8 @@ func (AuthToken) FromDomain(token domain.RefreshToken) (*AuthToken, error) {
 	return &AuthToken{
 		ID:           id,
 		StaffID:      staffID,
-		RefreshToken: token.Token,
+		RefreshToken: token.RefreshToken,
 		Expiry:       token.Expiry,
+		CreatedAt:    token.CreatedAt,
 	}, nil
 }
