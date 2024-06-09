@@ -31,7 +31,7 @@ func (m Staff) ToDomain() domain.Staff {
 	}
 }
 
-func (m Staff) FromDomain(staff domain.Staff) (*Staff, error) {
+func (Staff) FromDomain(staff domain.Staff) (*Staff, error) {
 	id, err := database.ObjectIDFromString(staff.ID)
 	if err != nil {
 		return nil, apperrors.Common.InvalidID

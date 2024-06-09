@@ -5,7 +5,7 @@ type StaffRole string
 const (
 	StaffRoleUnknown StaffRole = ""
 	StaffRoleAdmin   StaffRole = "admin"
-	StaffRoleEditor  StaffRole = "edit"
+	StaffRoleEditor  StaffRole = "editor"
 )
 
 func (s StaffRole) String() string {
